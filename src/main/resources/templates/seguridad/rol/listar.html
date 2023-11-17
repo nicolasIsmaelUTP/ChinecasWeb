@@ -29,6 +29,7 @@
                     <td th:text="${rol.nombre}"></td>
                     <td>
                         <a class="btn btn-warning" th:href="@{/rol/editar/} + ${rol.id}">Editar</a>
+                        <a class="btn btn-info" th:href="@{/rol/permisos/} + ${rol.id}">Permisos</a>
                         <a class="btn btn-danger" th:href="@{/rol/eliminar/} + ${rol.id}">Eliminar</a>
                     </td>
                 </tr>

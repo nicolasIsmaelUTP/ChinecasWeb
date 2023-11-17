@@ -3,9 +3,9 @@ package com.nibble.chinecas.repository;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import com.nibble.chinecas.model.Rol;
+import com.nibble.chinecas.model.Opcion;
 
 @Repository
-public interface IRolRepository extends CrudRepository<Rol, Integer>{
+public interface IOpcionRepository extends CrudRepository<Opcion, Integer>{
     
 }

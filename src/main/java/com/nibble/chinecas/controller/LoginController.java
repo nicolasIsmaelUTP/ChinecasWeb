@@ -12,7 +12,7 @@ import com.nibble.chinecas.service.UsuarioService;
 
 
 @Controller
-@RequestMapping("/")
+@RequestMapping("")
 public class LoginController {
     
     @Autowired

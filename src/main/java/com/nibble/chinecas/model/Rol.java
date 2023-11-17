@@ -8,6 +8,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
@@ -27,10 +28,8 @@ public class Rol {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "rol")
     private List<Usuario> usuarios;
 
-    // Constructors
-
-    public Rol() {
-    }
+    @ManyToMany(mappedBy = "roles")
+    private List<Opcion> opciones;
 
     // Getters and setters
 
@@ -52,6 +51,10 @@ public class Rol {
 
     public List<Usuario> getUsuarios() {
         return usuarios;
+    }
+
+    public List<Opcion> getOpciones() {
+        return opciones;
     }
 
     // Methods
