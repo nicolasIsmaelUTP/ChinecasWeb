@@ -21,7 +21,7 @@ public class LoginController {
     @GetMapping
     public String login(Model model){
         model.addAttribute("usuario", new Usuario());
-        return "/core/login";
+        return "/core/login2"; //borrar el 2
     }
 
     @PostMapping("/index")
