@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Listado de Roles</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container mt-4">
+        <h1>Listado de Roles</h1>
+        <p class="lead">Listado de Roles</p>
+        <a class="btn btn-primary" th:href="@{/rol/nuevo}">Nuevo</a>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="rol : ${roles}">
+                    <td th:text="${rol.id}"></td>
+                    <td th:text="${rol.nombre}"></td>
+                    <td>
+                        <a class="btn btn-warning" th:href="@{/rol/editar/} + ${rol.id}">Editar</a>
+                        <a class="btn btn-danger" th:href="@{/rol/eliminar/} + ${rol.id}">Eliminar</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Formulario de Usuarios</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container mt-4">
+        <div class="col-sm-6">
+            <div class="card">
+                <form th:action="@{/usuario/guardar}" th:object="${usuario}" method="POST">
+                    <div class="card-header">Formulario de Usuarios</div>
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label for="login">Login</label>
+                            <input th:field="*{login}" type="text" class="form-control" id="login" name="login" placeholder="Login del usuario" th:readonly="${readonly}">
+                        </div>
+                        <div class="form-group">
+                            <label for="clave">Clave</label>
+                            <input th:field="*{clave}" type="text" class="form-control" id="clave" name="clave"
+                                placeholder="Clave del usuario">
+                        </div>
+                        <div class="form-group">
+                            <label for="estado">Estado</label>
+                            <input th:field="*{estado}" type="text" class="form-control" id="estado" name="estado"
+                                placeholder="Estado del usuario">
+                        </div>
+                        <div class="form-group">
+                            <label for="rol">Rol</label>
+                            <select th:field="*{rol}" class="form-control" id="rol" name="rol">
+                                <option th:each="rol : ${roles}" th:value="${rol.id}" th:text="${rol.nombre}"></option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <button type="submit" class="btn btn-primary">Guardar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    </div>
+</body>
+
+</html>
