@@ -25,13 +25,13 @@ public class RolController {
     public String listar(Model model){
         List<Rol> roles=service.obtenerTodos();
         model.addAttribute("roles", roles);
-        return "rol/listar";
+        return "seguridad/rol/listar";
     }
 
     @GetMapping("/nuevo")
     public String nuevo(Model model){
         model.addAttribute("rol", new Rol());
-        return "rol/formulario";
+        return "seguridad/rol/formulario";
     }
 
     @PostMapping("/guardar")
@@ -44,7 +44,7 @@ public class RolController {
     public String editar(@PathVariable("id") int id, Model model){
         Optional<Rol> rol=service.obtener(id);
         model.addAttribute("rol", rol);
-        return "rol/formulario";
+        return "seguridad/rol/formulario";
     }
 
     @GetMapping("/eliminar/{id}")

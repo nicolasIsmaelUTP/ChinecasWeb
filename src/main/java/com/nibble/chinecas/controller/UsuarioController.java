@@ -29,7 +29,7 @@ public class UsuarioController {
     public String listar(Model model){
         List<Usuario> usuarios=usuarioService.obtenerTodos();
         model.addAttribute("usuarios", usuarios);
-        return "usuario/listar";
+        return "seguridad/usuario/listar";
     }
 
     @GetMapping("/nuevo")
@@ -37,7 +37,7 @@ public class UsuarioController {
         model.addAttribute("usuario", new Usuario());
         model.addAttribute("readonly", false);
         model.addAttribute("roles", rolService.obtenerTodos());
-        return "usuario/formulario";
+        return "seguridad/usuario/formulario";
     }
 
     @PostMapping("/guardar")
@@ -52,7 +52,7 @@ public class UsuarioController {
         model.addAttribute("usuario", usuario);
         model.addAttribute("readonly", true);
         model.addAttribute("roles", rolService.obtenerTodos());
-        return "usuario/formulario";
+        return "seguridad/usuario/formulario";
     }
 
     @GetMapping("/eliminar/{username}")
