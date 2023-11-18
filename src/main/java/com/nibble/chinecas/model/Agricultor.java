@@ -19,37 +19,37 @@ import jakarta.validation.constraints.Size;
     })
 public class Agricultor{
     @Id
-    @NotNull
     @Size(min = 8, max = 8)
+    @Pattern(regexp = "\\d+")
     @Column(name = "num_doc")
     private String numDoc;
 
     @NotNull
     @Size(min = 2, max = 20)
-    @Pattern(regexp = "[A-Za-z]+")
+    @Pattern(regexp = "[A-Za-záéíóúÁÉÍÓÚñÑüÜ]+")
     @Column(name = "primer_nombre")
     private String primerNombre;
 
     @Size(min = 2, max = 50)
-    @Pattern(regexp = "[A-Za-z]+")
+    @Pattern(regexp = "[A-Za-záéíóúÁÉÍÓÚñÑüÜ]+")
     @Column(name = "segundo_nombre")
     private String segundoNombre;
 
     @NotNull
     @Size(min = 2, max = 20)
-    @Pattern(regexp = "[A-Za-z]+")
+    @Pattern(regexp = "[A-Za-záéíóúÁÉÍÓÚñÑüÜ]+")
     @Column(name = "apellido_paterno")
     private String apellidoPaterno;
 
     @NotNull
     @Size(min = 2, max = 20)
-    @Pattern(regexp = "[A-Za-z]+")
+    @Pattern(regexp = "[A-Za-záéíóúÁÉÍÓÚñÑüÜ]+")
     @Column(name = "apellido_materno")
     private String apellidoMaterno;
 
     // Relationships
 
-    @JoinColumn(name = "tipo_documento_id", referencedColumnName = "id")
+    @JoinColumn(name = "tipo_documento_id", referencedColumnName = "id", nullable = false)
     @ManyToOne(optional = false)
     private TipoDocumento tipoDocumento;
 
@@ -57,9 +57,61 @@ public class Agricultor{
     @OneToOne(optional = false)
     private Propietario propietario;
 
+    // Getters and Setters
 
-    // Add getters and setters for the fields
+    public String getNumDoc() {
+        return numDoc;
+    }
 
-    // Add any additional constraints as required
+    public void setNumDoc(String numDoc) {
+        this.numDoc = numDoc;
+    }
 
+    public String getPrimerNombre() {
+        return primerNombre;
+    }
+
+    public void setPrimerNombre(String primerNombre) {
+        this.primerNombre = primerNombre;
+    }
+
+    public String getSegundoNombre() {
+        return segundoNombre;
+    }
+
+    public void setSegundoNombre(String segundoNombre) {
+        this.segundoNombre = segundoNombre;
+    }
+
+    public String getApellidoPaterno() {
+        return apellidoPaterno;
+    }
+
+    public void setApellidoPaterno(String apellidoPaterno) {
+        this.apellidoPaterno = apellidoPaterno;
+    }
+
+    public String getApellidoMaterno() {
+        return apellidoMaterno;
+    }
+
+    public void setApellidoMaterno(String apellidoMaterno) {
+        this.apellidoMaterno = apellidoMaterno;
+    }
+
+    public TipoDocumento getTipoDocumento() {
+        return tipoDocumento;
+    }
+
+    public void setTipoDocumento(TipoDocumento tipoDocumento) {
+        this.tipoDocumento = tipoDocumento;
+    }
+
+    public Propietario getPropietario() {
+        return propietario;
+    }
+
+    public void setPropietario(Propietario propietario) {
+        this.propietario = propietario;
+    }
 }
