@@ -2,15 +2,262 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
-    <title>Document</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canal de Chinecas</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="CSS/index.css">
+
+    <style>
+        body {
+            background: #f1f1f1;
+        }
+        
+        .barra {
+            background: #00ADEF;
+            padding-top: 15px;
+            padding-bottom: 15px;
+            margin: 0;
+        }
+        
+        .dropdown-menu {
+            margin: 17px;
+            background: #262a34;
+            color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.568);
+        }
+        
+        .menuperfil {
+            color: white;
+        }
+        
+        .menuperfil:focus {
+            background: #23ae6b;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.568);
+        }
+        
+        .cerrar:hover {
+            background-color: rgba(206, 65, 22, 0.877);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.568);
+        }
+        
+        .user {
+            font-size: 35px;
+        }
+        
+        
+        /*BARRA LATERAL*/
+        .barra-lateral {
+            background: #252121;
+            color: #fff;
+            min-width: 250px;
+            min-height: 100vh;
+            padding: 0;
+        }
+        
+        .barra-lateral a {
+            color: #fff;
+        }
+        
+        
+        /*ESTILOS MENU*/
+        .barra-lateral .menu a {
+            display: block;
+            padding: 20px;
+            font-family: Roboto, sans-serif;
+            font-weight: 500;
+            border-bottom: 1px solid rgba(255, 255, 255, .1);
+        }
+        
+        .barra-lateral .menu a:hover {
+            background-color: #003C5D; /* color de fondo al pasar el mouse */
+            text-decoration: none;
+        }
+        
+        .active {
+            background: #003C5D; /* color de fondo del item activo */
+        }
+        
+        .barra-lateral .menu {
+            border-top: 5px #fff solid;
+        }
+        
+        .barra-lateral .menu a i {
+            margin-right: 20px;
+        }
+        
+        
+        /*MAIN*/
+        .main {
+            padding-top: 40px;
+        }
+        
+        .main .columna {
+            padding-left: 40px;
+            padding-right: 40px;
+        }
+        
+        
+        /*mediaquerys*/
+        @media screen and (max-width:1300px) {
+            .barra-lateral {
+                min-width: auto;
+            }
+            .barra-lateral .menu a span {
+                display: none;
+            }
+            .barra-lateral .menu a i {
+                margin: 0;
+            }
+            .barra {
+                min-width: auto;
+            }
+            .dropdown-menu {
+                margin: 20px -79px 0px;
+            }
+        }
+        
+        @media screen and (max-width:575px) {
+            .barra-lateral {
+                min-height: auto;
+            }
+            .barra-lateral .menu a {
+                display: inline-block;
+                border-bottom: none;
+            }
+            .dropdown-menu {
+                margin: 20px -78px 0px;
+            }
+            .logocppe {
+                width: 100%;
+            }
+            body {
+                background: #D3D3D3;
+                font-size: 16px;
+                overflow: visible;
+            }
+        }
+        
+        .formulariorecursos {
+            box-shadow: 0 0 3px rgba(0, 0, 0, 0.568);
+            border-radius: 10px;
+            padding: 20px;
+        }
+        
+        .menu {
+            border-top: 5px #fff solid;
+        }
+        
+        @media screen and (max-width:575px) {
+            .barra-lateral {
+                height: auto;
+            }
+            .barra-lateral.menu a {
+                display: inline-block;
+                border-bottom: none;
+            }
+            .dropdown-menu {
+                margin: 20px -78 0px;
+            }
+            body {
+                font-size: 16px;
+                overflow: visible;
+            }
+        }
+        
+        /* SUBMENUS */
+        .submenu {
+            display: none;
+            list-style-type: none;
+            padding-left: 30px;
+        }
+        .menu a.active + .submenu {
+            display: block;
+        }
+        
+    </style>
+
 </head>
 
 <body>
-    <div class="container mt-4">
-        <p>Bienvenido, <span th:text="${usuario.login}"></span></p>
+
+    <div class="container-fluid">
+        <div class="row justify-content-center align-content-center">
+            <div class="col-8 barra">
+                <h4 class="text-light">Canal de Chinecas</h4>
+            </div>
+            <div class="col-4 text-right barra">
+                <ul class="navbar-nav mr-auto">
+                    <li>
+                        <a href="#" class="px-3 text-light perfil dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fas fa-user-circle user" th:text="${usuario.login}"></i>
+                        </a>
+
+                        <div class="dropdown-menu" aria-labelledby="navbar-dropdown">
+                            <a class="dropdown-item menuperfil cerrar">
+                                <i class="fas fa-sign-out-alt m-1"></i>
+                                <!--Falta implementar el logout en controlador para 
+                                llamarlo desde aqui con el th: -->
+                                Salir
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
     </div>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="barra-lateral col-12 col-sm-auto">
+                <!-- BARRA LATERAL -->
+                <nav class="menu d-flex d-sm-block justify-content-center flex-wrap">
+                    <a href="#"><i class="fas fa-home"></i><span>Inicio</span></a>
+                    <a href="#" class="has-submenu"><i class="fas fa-plus"></i><span>Agregar</span></a>
+                    <ul class="submenu">
+                        <li><a href="#">Submenu Item 1</a></li>
+                        <li><a href="#">Submenu Item 2</a></li>
+                    </ul>
+                    <a href="#" class="has-submenu"><i class="fas fa-chart-bar"></i><span>Estad&iacute;sticas</span></a>
+                    <ul class="submenu">
+                        <li><a href="#">Submenu Item 3</a></li>
+                        <li><a href="#">Submenu Item 4</a></li>
+                    </ul>
+                    <a href="#" class="has-submenu"><i class="fas fa-cog"></i><span>Configuraci&oacute;n</span></a>
+                    <ul class="submenu">
+                        <li><a href="#">Modificar informaci&oacute;n</a></li>
+                        <li><a href="#">Cambiar contrase&ntilde;a</a></li>
+                    </ul>
+                </nav>
+
+            </div>
+            <main class="main col">
+                <div class="row justify-content-center align-content-center text-center">
+                    <div class="columna col-lg-6">
+                        CONTENIDO
+                    </div>
+
+                </div>
+
+            </main>
+        </div>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js"></script>
+    <script src="https://kit.fontawesome.com/646c794df3.js"></script>
+    
+    <!-- Para que se muestre los submenus al hacer click -->
+    <script>
+        $(document).ready(function () {
+            $('.has-submenu').click(function () {
+                $('.has-submenu').not(this).removeClass('active'); //Para que se cierren los otros submenus al abrir uno
+                $(this).toggleClass('active');
+            });
+        });
+    </script>
 </body>
 
 </html>
