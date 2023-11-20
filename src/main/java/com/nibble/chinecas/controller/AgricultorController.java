@@ -12,9 +12,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.nibble.chinecas.model.Agricultor;
-import com.nibble.chinecas.model.Propietario;
 import com.nibble.chinecas.service.AgricultorService;
 import com.nibble.chinecas.service.PropietarioService;
+import com.nibble.chinecas.service.TipoDocumentoService;
 
 @Controller
 @RequestMapping("/agricultor")
@@ -26,22 +26,31 @@ public class AgricultorController {
     @Autowired
     private PropietarioService propietarioService;
 
+    @Autowired
+    private TipoDocumentoService tipoDocumentoService;
+
     @GetMapping
     public String listar(Model model){
         List<Agricultor> agricultores = agricultorService.obtenerTodos();
-        model.addAttribute("agricultores", agricultores); // Ojito con esto
+        model.addAttribute("agricultores", agricultores);
         return "agricultor/listar";
     }
 
     @GetMapping("/nuevo")
     public String nuevo(Model model){
         model.addAttribute("agricultor", new Agricultor());
-        model.addAttribute("propietario", new Propietario());
+        model.addAttribute("tiposDocumento", tipoDocumentoService.obtenerTodos());
+        model.addAttribute("readonly", false);
         return "agricultor/formulario";
     }
 
     @PostMapping("/guardar")
-    public String guardar(Agricultor agricultor, Propietario propietario){
+    public String guardar(Agricultor agricultor){
+
+        agricultor.getPropietario().setId(agricultor.getNumDoc());
+        agricultor.getPropietario().setTipo("natural");
+
+        propietarioService.guardar(agricultor.getPropietario());
         agricultorService.guardar(agricultor);
         return "redirect:/agricultor";
     }
@@ -49,9 +58,9 @@ public class AgricultorController {
     @GetMapping("/editar/{id}")
     public String editar(@PathVariable("id") String id, Model model){
         Optional<Agricultor> agricultor = agricultorService.obtener(id);
-        Optional<Propietario> propietario = propietarioService.obtener(id);
         model.addAttribute("agricultor", agricultor);
-        model.addAttribute("propietario", propietario);
+        model.addAttribute("tiposDocumento", tipoDocumentoService.obtenerTodos());
+        model.addAttribute("readonly", true);
         return "agricultor/formulario";
     }
 
