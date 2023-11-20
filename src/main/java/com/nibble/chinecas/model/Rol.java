@@ -25,7 +25,7 @@ public class Rol {
     private String nombre;
 
     // Relationships
-    
+
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "rol", fetch = FetchType.LAZY)
     private List<Usuario> usuarios;
 
@@ -63,5 +63,20 @@ public class Rol {
     @Override
     public String toString() {
         return nombre;
+    }
+
+    /**
+     * Verifica si la opción dada está disponible para este rol.
+     * 
+     * @param opcion la opción a verificar
+     * @return true si el rol tiene la opción dada, false en caso contrario
+     */
+    public boolean tieneOpcion(String opcion) {
+        for (Opcion o : opciones) {
+            if (o.getDocumento().equals(opcion)) {
+                return true;
+            }
+        }
+        return false;
     }
 }

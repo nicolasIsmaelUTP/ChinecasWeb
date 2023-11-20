@@ -215,35 +215,35 @@
                     <a href="#"><i class="fas fa-home"></i><span>Inicio</span></a>
                     <a href="#" class="has-submenu"><i class="fas fa-wrench"></i><span>Gesti&oacute;n de usuarios</span></a>
                     <ul class="submenu">
-                        <li><a href="#">Mantenimiento de roles</a></li>
-                        <li><a href="#">Mantenimiento de usuarios</a></li>
-                        <li><a href="#">Mantenimiento de permisos por rol</a></li>
+                        <li th:if="${usuario.getRol().tieneOpcion('mant_roles')}"><a th:href="@{/rol}">Mantenimiento de roles</a></li>
+                        <li th:if="${usuario.getRol().tieneOpcion('mant_usuarios')}"><a th:href="@{/usuario}">Mantenimiento de usuarios</a></li>
+                        <li th:if="${usuario.getRol().tieneOpcion('mant_permisos_rol')}"><a th:href="@{/opcion}">Mantenimiento de permisos por rol</a></li>
                     </ul>
                     <a href="#" class="has-submenu"><i class="fas fa-wrench"></i><span>Gesti&oacute;n agropecuaria</span></a>
                     <ul class="submenu">
-                        <li><a href="#">Mantenimiento de agricultores</a></li>
-                        <li><a href="#">Manteminiento de empresas</a></li>
-                        <li><a href="#">Manteminiento de terrenos</a></li>
-                        <li><a href="#">Manteminiento de canales</a></li>
+                        <li th:if="${usuario.getRol().tieneOpcion('mant_agricultores')}"><a href="#">Mantenimiento de agricultores</a></li>
+                        <li th:if="${usuario.getRol().tieneOpcion('mant_empresas')}"><a href="#">Mantenimiento de empresas</a></li>
+                        <li th:if="${usuario.getRol().tieneOpcion('mant_terrenos')}"><a href="#">Mantenimiento de terrenos</a></li>
+                        <li th:if="${usuario.getRol().tieneOpcion('mant_canales')}"><a href="#">Mantenimiento de canales</a></li>
                     </ul>
                     <a href="#" class="has-submenu"><i class="fas fa-wrench"></i><span>Gesti&oacute;n de deudas</span></a>
                     <ul class="submenu">
-                        <li><a href="#">Refinanciamiento de deuda</a></li>
+                        <li th:if="${usuario.getRol().tieneOpcion('refinanciamiento_deuda')}"><a href="#">Refinanciamiento de deuda</a></li>
                     </ul>
                     <a href="#" class="has-submenu"><i class="fas fa-chart-bar"></i><span>Operaciones</span></a>
                     <ul class="submenu">
-                        <li><a href="#">Mantenimiento de lectura de medidores</a></li>
-                        <li><a href="#">Manteminiento de costos</a></li>
+                        <li th:if="${usuario.getRol().tieneOpcion('mant_lectura_medidores')}"><a href="#">Mantenimiento de lectura de medidores</a></li>
+                        <li th:if="${usuario.getRol().tieneOpcion('mant_costos')}"><a href="#">Manteminiento de costos</a></li>
                     </ul>
                     <a href="#" class="has-submenu"><i class="fas fa-money-check-alt"></i><span>Recibos</span></a>
                     <ul class="submenu">
-                        <li><a href="#">Generar recibo de consumo de agua</a></li>
-                        <li><a href="#">Listar recibos</a></li>
+                        <li th:if="${usuario.getRol().tieneOpcion('generar_recibo_agua')}"><a href="#">Generar recibo de consumo de agua</a></li>
+                        <li th:if="${usuario.getRol().tieneOpcion('listar_recibos')}"><a href="#">Listar recibos</a></li>
                     </ul>
                     <a href="#" class="has-submenu"><i class="fas fa-user"></i><span>Perfil</span></a>
                     <ul class="submenu">
-                        <li><a href="#">Gestionar información personal</a></li>
-                        <li><a href="#">Visualizar tarifas</a></li>
+                        <li th:if="${usuario.getRol().tieneOpcion('gestionar_info_personal')}"><a href="#">Gestionar información personal</a></li>
+                        <li th:if="${usuario.getRol().tieneOpcion('visualizar_tarifas')}"><a href="#">Visualizar tarifas</a></li>
                     </ul>
                 </nav>
 
