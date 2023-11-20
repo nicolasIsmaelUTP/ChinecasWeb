@@ -22,12 +22,12 @@ public class Empresa {
     @Pattern(regexp = "\\d+", message = "El RUC debe contener solo números")
     private String ruc;
     
-    @Column(name = "nombre", length = 20, nullable = false)
-    @Size(min = 2, max = 20, message = "El nombre debe tener entre 2 y 20 caracteres")
+    @Column(name = "nombre", length = 50, nullable = false)
+    @Size(min = 2, max = 50, message = "El nombre debe tener entre 2 y 20 caracteres")
     private String nombre;
     
-    @Column(name = "razon_social", length = 30, nullable = false)
-    @Size(min = 2, max = 30, message = "La razón social debe tener entre 2 y 30 caracteres")
+    @Column(name = "razon_social", length = 100, nullable = false)
+    @Size(min = 2, max = 100, message = "La razón social debe tener entre 2 y 30 caracteres")
     private String razonSocial;
     
     // Relationships

@@ -14,8 +14,7 @@
     <div class="container mt-4">
         <div class="col-sm-6">
             <div class="card">
-                <form th:action="@{/agricultor/guardar}" th:object="${agricultor}"
-                    method="POST">
+                <form th:action="@{/agricultor/guardar}" th:object="${agricultor}" method="POST">
                     <div class="card-header">Formulario de Agricultores</div>
                     <div class="card-body">
                         <!-- tipoDocumento -->
@@ -30,7 +29,8 @@
                         <!-- numDoc -->
                         <div class="mb-3">
                             <label for="numDoc" class="form-label">Documento</label>
-                            <input type="text" class="form-control" id="numDoc" name="numDoc" th:field="*{numDoc}" th:readonly="${readonly}">
+                            <input type="text" class="form-control" id="numDoc" name="numDoc" th:field="*{numDoc}"
+                                th:readonly="${readonly}">
                         </div>
                         <!-- primerNombre -->
                         <div class="mb-3">
@@ -59,19 +59,20 @@
                         <!-- direccion -->
                         <div class="mb-3">
                             <label for="propietario.direccion" class="form-label">Dirección</label>
-                            <input type="text" class="form-control" id="propietario.direccion" name="propietario.direccion"
-                                th:field="*{propietario.direccion}">
+                            <input type="text" class="form-control" id="propietario.direccion"
+                                name="propietario.direccion" th:field="*{propietario.direccion}">
                         </div>
                         <!-- correo -->
                         <div class="mb-3">
                             <label for="propietario.correo" class="form-label">Correo</label>
-                            <input type="text" class="form-control" id="propietario.correo" name="propietario.correo" th:field="*{propietario.correo}">
+                            <input type="text" class="form-control" id="propietario.correo" name="propietario.correo"
+                                th:field="*{propietario.correo}">
                         </div>
                         <!-- telefono -->
                         <div class="mb-3">
                             <label for="propietario.telefono" class="form-label">Teléfono</label>
-                            <input type="text" class="form-control" id="propietario.telefono" name="propietario.telefono"
-                                th:field="*{propietario.telefono}">
+                            <input type="text" class="form-control" id="propietario.telefono"
+                                name="propietario.telefono" th:field="*{propietario.telefono}">
                         </div>
                     </div>
                     <div class="card-footer">
@@ -80,7 +81,6 @@
                 </form>
             </div>
         </div>
-    </div>
     </div>
 </body>
 

@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
-    <title>Listado de Agricultores</title>
+    <title>Listado de Empresas Propietarias de Terrenos</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
@@ -12,15 +12,15 @@
     <div th:insert="~{seguridad/template :: nav}"></div>
 
     <div class="container mt-4">
-        <h1>Listado de Agricultores</h1>
-        <p class="lead">Listado de Agricultores</p>
-        <a class="btn btn-primary" th:href="@{/agricultor/nuevo}">Nuevo</a>
+        <h1>Listado de Empresas Propietarias de Terrenos</h1>
+        <p class="lead">Listado de Empresas Propietarias de Terrenos</p>
+        <a class="btn btn-primary" th:href="@{/empresa/nuevo}">Nueva</a>
         <table class="table">
             <thead>
                 <tr>
-                    <th scope="col">Documento</th>
-                    <th scope="col">Apellidos</th>
-                    <th scope="col">Nombres</th>
+                    <th scope="col">Ruc</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Razon Social</th>
                     <th scope="col">Telefono</th>
                     <th scope="col">Direccion</th>
                     <th scope="col">Correo</th>
@@ -28,16 +28,16 @@
                 </tr>
             </thead>
             <tbody>
-                <tr th:each="agricultor : ${agricultores}">
-                    <td th:text="${agricultor.numDoc}"></td>
-                    <td th:text="${agricultor.apellidoPaterno + ' ' + agricultor.apellidoMaterno}"></td>
-                    <td th:text="${agricultor.primerNombre + ' ' + agricultor.segundoNombre}"></td>
-                    <td th:text="${agricultor.propietario.telefono}"></td>
-                    <td th:text="${agricultor.propietario.direccion}"></td>
-                    <td th:text="${agricultor.propietario.correo}"></td>
+                <tr th:each="empresa : ${empresas}">
+                    <td th:text="${empresa.ruc}"></td>
+                    <td th:text="${empresa.nombre}"></td>
+                    <td th:text="${empresa.razonSocial}"></td>
+                    <td th:text="${empresa.propietario.telefono}"></td>
+                    <td th:text="${empresa.propietario.direccion}"></td>
+                    <td th:text="${empresa.propietario.correo}"></td>
                     <td>
-                        <a class="btn btn-warning" th:href="@{/agricultor/editar/} + ${agricultor.numDoc}">Editar</a>
-                        <a class="btn btn-danger" th:href="@{/agricultor/eliminar/} + ${agricultor.numDoc}">Eliminar</a>
+                        <a class="btn btn-warning" th:href="@{/empresa/editar/} + ${empresa.ruc}">Editar</a>
+                        <a class="btn btn-danger" th:href="@{/empresa/eliminar/} + ${empresa.ruc}">Eliminar</a>
                     </td>
                 </tr>
             </tbody>

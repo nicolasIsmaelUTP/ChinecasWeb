@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.nibble.chinecas.model.Empresa;
-import com.nibble.chinecas.model.TipoEmpresa;
 import com.nibble.chinecas.service.EmpresaService;
 import com.nibble.chinecas.service.PropietarioService;
 import com.nibble.chinecas.service.TipoEmpresaService;
@@ -40,7 +39,7 @@ public class EmpresaController {
     @GetMapping("/nuevo")
     public String nuevo(Model model) {
         model.addAttribute("empresa", new Empresa());
-        model.addAttribute("tiposDocumento", tipoEmpresaService.obtenerTodos());
+        model.addAttribute("tiposEmpresa", tipoEmpresaService.obtenerTodos());
         model.addAttribute("readonly", false);
         return "empresa/formulario";
     }
@@ -59,7 +58,7 @@ public class EmpresaController {
     public String editar(@PathVariable("id") String id, Model model) {
         Optional<Empresa> empresa = empresaService.obtener(id);
         model.addAttribute("empresa", empresa);
-        model.addAttribute("tiposDocumento", tipoEmpresaService.obtenerTodos());
+        model.addAttribute("tiposEmpresa", tipoEmpresaService.obtenerTodos());
         model.addAttribute("readonly", true);
         return "empresa/formulario";
     }
