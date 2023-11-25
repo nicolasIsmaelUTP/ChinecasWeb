@@ -123,29 +123,119 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#" class="nav-link link-dark">
+                    <a th:if="${usuario.getRol().tieneOpcion('mant_roles')}" th:href="@{/agricultor}"
+                        class="nav-link">
                         <svg class="bi me-2" width="16" height="16">
-                            <use xlink:href="#speedometer2"></use>
+                            <use xlink:href="#table"></use>
                         </svg>
-                        Dashboard
+                        Mantenimiento de roles
                     </a>
                 </li>
                 <li>
-                    <li>
-                        <a th:href="@{/agricultor}" class="nav-link">
-                            <svg class="bi me-2" width="16" height="16">
-                                <use xlink:href="#table"></use>
-                            </svg>
-                            Agricultor
-                        </a>
-                    </li>
+                    <a th:if="${usuario.getRol().tieneOpcion('mant_usuarios')}" th:href="@{/agricultor}"
+                        class="nav-link">
+                        <svg class="bi me-2" width="16" height="16">
+                            <use xlink:href="#table"></use>
+                        </svg>
+                        Mantenimiento de usuarios
+                    </a>
                 </li>
                 <li>
-                    <a th:href="@{/empresa}" class="nav-link link-dark">
+                    <a th:if="${usuario.getRol().tieneOpcion('mant_permisos_rol')}" th:href="@{/agricultor}"
+                        class="nav-link">
+                        <svg class="bi me-2" width="16" height="16">
+                            <use xlink:href="#table"></use>
+                        </svg>
+                        Mantenimiento de permisos por rol
+                    </a>
+                </li>
+                <li>
+                    <a th:if="${usuario.getRol().tieneOpcion('mant_agricultores')}" th:href="@{/agricultor}"
+                        class="nav-link">
+                        <svg class="bi me-2" width="16" height="16">
+                            <use xlink:href="#table"></use>
+                        </svg>
+                        Mantenimiento de agricultores
+                    </a>
+                </li>
+                <li>
+                    <a th:if="${usuario.getRol().tieneOpcion('mant_empresas')}" th:href="@{/empresa}" class="nav-link link-dark">
                         <svg class="bi me-2" width="16" height="16">
                             <use xlink:href="#grid"></use>
                         </svg>
-                        Empresa
+                        Mantenimiento de empresas
+                    </a>
+                </li>
+                <li>
+                    <a th:if="${usuario.getRol().tieneOpcion('mant_terrenos')}" th:href="@{/terreno}" class="nav-link link-dark">
+                        <svg class="bi me-2" width="16" height="16">
+                            <use xlink:href="#grid"></use>
+                        </svg>
+                        Mantenimiento de terrenos
+                    </a>
+                </li>
+                <li>
+                    <a th:if="${usuario.getRol().tieneOpcion('mant_canales')}" th:href="@{/terreno}" class="nav-link link-dark">
+                        <svg class="bi me-2" width="16" height="16">
+                            <use xlink:href="#grid"></use>
+                        </svg>
+                        Mantenimiento de canales
+                    </a>
+                </li>
+                <li>
+                    <a th:if="${usuario.getRol().tieneOpcion('refinanciamiento_deuda')}" th:href="@{/terreno}" class="nav-link link-dark">
+                        <svg class="bi me-2" width="16" height="16">
+                            <use xlink:href="#grid"></use>
+                        </svg>
+                        Refinanciamiento de deuda
+                    </a>
+                </li>
+                <li>
+                    <a th:if="${usuario.getRol().tieneOpcion('mant_lectura_medidores')}" th:href="@{/terreno}" class="nav-link link-dark">
+                        <svg class="bi me-2" width="16" height="16">
+                            <use xlink:href="#grid"></use>
+                        </svg>
+                        Mantenimiento de lectura de medidores
+                    </a>
+                </li>
+                <li>
+                    <a th:if="${usuario.getRol().tieneOpcion('mant_costos')}" th:href="@{/terreno}" class="nav-link link-dark">
+                        <svg class="bi me-2" width="16" height="16">
+                            <use xlink:href="#grid"></use>
+                        </svg>
+                        Mantenimiento de costos
+                    </a>
+                </li>
+                <li>
+                    <a th:if="${usuario.getRol().tieneOpcion('generar_recibo_agua')}" th:href="@{/terreno}" class="nav-link link-dark">
+                        <svg class="bi me-2" width="16" height="16">
+                            <use xlink:href="#grid"></use>
+                        </svg>
+                        Generar recibo de consumo de agua
+                    </a>
+                </li>
+                <li>
+                    <a th:if="${usuario.getRol().tieneOpcion('listar_recibos')}" th:href="@{/terreno}" class="nav-link link-dark">
+                        <svg class="bi me-2" width="16" height="16">
+                            <use xlink:href="#grid"></use>
+                        </svg>
+                        Listar recibos
+                    </a>
+                </li>
+                <li>
+                    <a th:if="${usuario.getRol().tieneOpcion('gestionar_info_personal')}" th:href="@{/terreno}" class="nav-link link-dark">
+                        <svg class="bi me-2" width="16" height="16">
+                            <use xlink:href="#grid"></use>
+                        </svg>
+                        Gestionar información personal
+                    </a>
+                </li>
+                <li>
+                    <a th:if="${usuario.getRol().tieneOpcion('visualizar_tarifas')}" th:href="@{/terreno}" class="nav-link link-dark">
+                        <svg class="bi me-2" width="16" height="16">
+                            <use xlink:href="#grid"></use>
+                        </svg>
+                        Visualizar tarifas
                     </a>
                 </li>
             </ul>
@@ -166,7 +256,7 @@
                     <li><a class="dropdown-item" href="#" id="sign-out">Cerrar sesión</a></li>
                     <script>
                         // Escucha el evento click del enlace "Cerrar sesión"
-                        document.getElementById("sign-out").addEventListener("click", function() {
+                        document.getElementById("sign-out").addEventListener("click", function () {
                             // Redirige a la página de inicio
                             window.location.href = "/";
                             // Limpia la sesión del usuario
