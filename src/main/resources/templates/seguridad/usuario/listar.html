@@ -8,42 +8,47 @@
 </head>
 
 <body>
-
-    <div th:insert="~{seguridad/template :: nav}"></div>
-
-    <div class="container mt-4">
-        <h1>Listado de Usuarios</h1>
-        <p class="lead">Listado de Usuarios</p>
-        <a class="btn btn-primary" th:href="@{/usuario/nuevo}">Nuevo</a>
-        <table class="table">
-            <thead>
-                <tr>
-                    <th scope="col">Login</th>
-                    <th scope="col">Clave</th>
-                    <th scope="col">Estado</th>
-                    <th scope="col">Rol</th>
-                    <th scope="col">Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr th:each="usuario : ${usuarios}">
-                    <td th:text="${usuario.login}"></td>
-                    <td th:text="${usuario.clave}"></td>
-                    <td th:text="${usuario.estado}"></td>
-                    <td th:text="${usuario.rol}"></td>
-                    <td>
-                        <a class="btn btn-warning" th:href="@{/usuario/editar/} + ${usuario.login}">Editar</a>
-                        <!--    <a class="btn btn-danger" th:href="@{/usuario/eliminar/} + ${usuario.login}">Eliminar</a>
+    <div class="row">
+        <div class="col-md-3">
+            <div th:insert="~{sidebar :: sidebar}"></div>
+        </div>
+        <div class="col-md-9">
+            <div class="container mt-4">
+                <h1>Listado de Usuarios</h1>
+                <p class="lead">Listado de Usuarios</p>
+                <a class="btn btn-primary" th:href="@{/usuario/nuevo}">Nuevo</a>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Login</th>
+                            <th scope="col">Clave</th>
+                            <th scope="col">Estado</th>
+                            <th scope="col">Rol</th>
+                            <th scope="col">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="usuario : ${usuarios}">
+                            <td th:text="${usuario.login}"></td>
+                            <td th:text="${usuario.clave}"></td>
+                            <td th:text="${usuario.estado}"></td>
+                            <td th:text="${usuario.rol}"></td>
+                            <td>
+                                <a class="btn btn-warning" th:href="@{/usuario/editar/} + ${usuario.login}">Editar</a>
+                                <!--    <a class="btn btn-danger" th:href="@{/usuario/eliminar/} + ${usuario.login}">Eliminar</a>
                         -->
-                        <a th:onclick="eliminar([[${usuario.login}]])" class="btn btn-danger">Eliminar</a>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+                                <a th:onclick="eliminar([[${usuario.login}]])" class="btn btn-danger">Eliminar</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 
     <!--Para poder usar el alert de eliminar. JavaScript-->
-    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="JS/UsuarioFunctions.js"></script>
 </body>

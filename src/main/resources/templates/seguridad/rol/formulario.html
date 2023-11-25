@@ -8,28 +8,31 @@
 </head>
 
 <body>
-
-    <div th:insert="~{seguridad/template :: nav}"></div>
-
-    <div class="container mt-4">
-        <div class="col-sm-6">
-            <div class="card">
-                <form th:action="@{/rol/guardar}" th:object="${rol}" method="POST">
-                    <div class="card-header">Formulario de Roles</div>
-                    <div class="card-body">
-                        <input th:field="*{id}" type="hidden" class="form-control" id="id" name="id">
-                        <div class="form-group"><label for="nombre">Nombre</label>
-                            <input th:field="*{nombre}" type="text" class="form-control" id="nombre" name="nombre"
-                                placeholder="Nombre del rol">
-                        </div>
+    <div class="row">
+        <div class="col-md-3">
+            <div th:insert="~{sidebar :: sidebar}"></div>
+        </div>
+        <div class="col-md-9">
+            <div class="container mt-4">
+                <div class="col-sm-6">
+                    <div class="card">
+                        <form th:action="@{/rol/guardar}" th:object="${rol}" method="POST">
+                            <div class="card-header">Formulario de Roles</div>
+                            <div class="card-body">
+                                <input th:field="*{id}" type="hidden" class="form-control" id="id" name="id">
+                                <div class="form-group"><label for="nombre">Nombre</label>
+                                    <input th:field="*{nombre}" type="text" class="form-control" id="nombre"
+                                        name="nombre" placeholder="Nombre del rol">
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <button type="submit" class="btn btn-primary">Guardar</button>
+                            </div>
+                        </form>
                     </div>
-                    <div class="card-footer">
-                        <button type="submit" class="btn btn-primary">Guardar</button>
-                    </div>
-                </form>
+                </div>
             </div>
         </div>
-    </div>
     </div>
 </body>
 

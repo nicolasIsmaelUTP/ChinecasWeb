@@ -8,40 +8,44 @@
 </head>
 
 <body>
-
-    <div th:insert="~{seguridad/template :: nav}"></div>
-
-    <div class="container mt-4">
-        <h1>Listado de Empresas Propietarias de Terrenos</h1>
-        <p class="lead">Listado de Empresas Propietarias de Terrenos</p>
-        <a class="btn btn-primary" th:href="@{/empresa/nuevo}">Nueva</a>
-        <table class="table">
-            <thead>
-                <tr>
-                    <th scope="col">Ruc</th>
-                    <th scope="col">Nombre</th>
-                    <th scope="col">Razon Social</th>
-                    <th scope="col">Telefono</th>
-                    <th scope="col">Direccion</th>
-                    <th scope="col">Correo</th>
-                    <th scope="col">Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr th:each="empresa : ${empresas}">
-                    <td th:text="${empresa.ruc}"></td>
-                    <td th:text="${empresa.nombre}"></td>
-                    <td th:text="${empresa.razonSocial}"></td>
-                    <td th:text="${empresa.propietario.telefono}"></td>
-                    <td th:text="${empresa.propietario.direccion}"></td>
-                    <td th:text="${empresa.propietario.correo}"></td>
-                    <td>
-                        <a class="btn btn-warning" th:href="@{/empresa/editar/} + ${empresa.ruc}">Editar</a>
-                        <a class="btn btn-danger" th:href="@{/empresa/eliminar/} + ${empresa.ruc}">Eliminar</a>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+    <div class="row">
+        <div class="col-md-3">
+            <div th:insert="~{sidebar :: sidebar}"></div>
+        </div>
+        <div class="col-md-9">
+            <div class="container mt-4">
+                <h1>Listado de Empresas Propietarias de Terrenos</h1>
+                <p class="lead">Listado de Empresas Propietarias de Terrenos</p>
+                <a class="btn btn-primary" th:href="@{/empresa/nuevo}">Nueva</a>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Ruc</th>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Razon Social</th>
+                            <th scope="col">Telefono</th>
+                            <th scope="col">Direccion</th>
+                            <th scope="col">Correo</th>
+                            <th scope="col">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="empresa : ${empresas}">
+                            <td th:text="${empresa.ruc}"></td>
+                            <td th:text="${empresa.nombre}"></td>
+                            <td th:text="${empresa.razonSocial}"></td>
+                            <td th:text="${empresa.propietario.telefono}"></td>
+                            <td th:text="${empresa.propietario.direccion}"></td>
+                            <td th:text="${empresa.propietario.correo}"></td>
+                            <td>
+                                <a class="btn btn-warning" th:href="@{/empresa/editar/} + ${empresa.ruc}">Editar</a>
+                                <a class="btn btn-danger" th:href="@{/empresa/eliminar/} + ${empresa.ruc}">Eliminar</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </body>
 

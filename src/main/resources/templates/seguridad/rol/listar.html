@@ -8,33 +8,37 @@
 </head>
 
 <body>
-
-    <div th:insert="~{seguridad/template :: nav}"></div>
-
-    <div class="container mt-4">
-        <h1>Listado de Roles</h1>
-        <p class="lead">Listado de Roles</p>
-        <a class="btn btn-primary" th:href="@{/rol/nuevo}">Nuevo</a>
-        <table class="table">
-            <thead>
-                <tr>
-                    <th scope="col">ID</th>
-                    <th scope="col">Nombre</th>
-                    <th scope="col">Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr th:each="rol : ${roles}">
-                    <td th:text="${rol.id}"></td>
-                    <td th:text="${rol.nombre}"></td>
-                    <td>
-                        <a class="btn btn-warning" th:href="@{/rol/editar/} + ${rol.id}">Editar</a>
-                        <a class="btn btn-info" th:href="@{/rol/permisos/} + ${rol.id}">Permisos</a>
-                        <a class="btn btn-danger" th:href="@{/rol/eliminar/} + ${rol.id}">Eliminar</a>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+    <div class="row">
+        <div class="col-md-3">
+            <div th:insert="~{sidebar :: sidebar}"></div>
+        </div>
+        <div class="col-md-9">
+            <div class="container mt-4">
+                <h1>Listado de Roles</h1>
+                <p class="lead">Listado de Roles</p>
+                <a class="btn btn-primary" th:href="@{/rol/nuevo}">Nuevo</a>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="rol : ${roles}">
+                            <td th:text="${rol.id}"></td>
+                            <td th:text="${rol.nombre}"></td>
+                            <td>
+                                <a class="btn btn-warning" th:href="@{/rol/editar/} + ${rol.id}">Editar</a>
+                                <a class="btn btn-info" th:href="@{/rol/permisos/} + ${rol.id}">Permisos</a>
+                                <a class="btn btn-danger" th:href="@{/rol/eliminar/} + ${rol.id}">Eliminar</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </body>
 

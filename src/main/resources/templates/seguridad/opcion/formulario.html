@@ -8,40 +8,43 @@
 </head>
 
 <body>
-
-    <div th:insert="~{seguridad/template :: nav}"></div>
-
-    <div class="container mt-4">
-        <div class="col-sm-6">
-            <div class="card">
-                <form th:action="@{/opcion/guardar}" th:object="${opcion}" method="POST">
-                    <div class="card-header">Formulario de Opciones</div>
-                    <div class="card-body">
-                        <input th:field="*{id}" type="hidden" class="form-control" id="id" name="id">
-                        <div class="form-group"><label for="descripcion">descripcion</label>
-                            <input th:field="*{descripcion}" type="text" class="form-control" id="descripcion" name="descripcion"
-                                placeholder="descripcion de la opcion">
-                        </div>
-                        <div class="form-group"><label for="documento">documento</label>
-                            <input th:field="*{documento}" type="text" class="form-control" id="documento" name="documento"
-                                placeholder="documento de la opcion">
-                        </div>
-                        <div class="form-group"><label for="estado">estado</label>
-                            <input th:field="*{estado}" type="text" class="form-control" id="estado" name="estado"
-                                placeholder="estado de la opcion">
-                        </div>
-                        <div class="form-group"><label for="grupo">grupo</label>
-                            <input th:field="*{grupo}" type="text" class="form-control" id="grupo" name="grupo"
-                                placeholder="grupo de la opcion">
-                        </div>
+    <div class="row">
+        <div class="col-md-3">
+            <div th:insert="~{sidebar :: sidebar}"></div>
+        </div>
+        <div class="col-md-9">
+            <div class="container mt-4">
+                <div class="col-sm-6">
+                    <div class="card">
+                        <form th:action="@{/opcion/guardar}" th:object="${opcion}" method="POST">
+                            <div class="card-header">Formulario de Opciones</div>
+                            <div class="card-body">
+                                <input th:field="*{id}" type="hidden" class="form-control" id="id" name="id">
+                                <div class="form-group"><label for="descripcion">descripcion</label>
+                                    <input th:field="*{descripcion}" type="text" class="form-control" id="descripcion"
+                                        name="descripcion" placeholder="descripcion de la opcion">
+                                </div>
+                                <div class="form-group"><label for="documento">documento</label>
+                                    <input th:field="*{documento}" type="text" class="form-control" id="documento"
+                                        name="documento" placeholder="documento de la opcion">
+                                </div>
+                                <div class="form-group"><label for="estado">estado</label>
+                                    <input th:field="*{estado}" type="text" class="form-control" id="estado"
+                                        name="estado" placeholder="estado de la opcion">
+                                </div>
+                                <div class="form-group"><label for="grupo">grupo</label>
+                                    <input th:field="*{grupo}" type="text" class="form-control" id="grupo" name="grupo"
+                                        placeholder="grupo de la opcion">
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <button type="submit" class="btn btn-primary">Guardar</button>
+                            </div>
+                        </form>
                     </div>
-                    <div class="card-footer">
-                        <button type="submit" class="btn btn-primary">Guardar</button>
-                    </div>
-                </form>
+                </div>
             </div>
         </div>
-    </div>
     </div>
 </body>
 

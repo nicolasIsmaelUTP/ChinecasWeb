@@ -123,8 +123,7 @@
                     </a>
                 </li>
                 <li>
-                    <a th:if="${usuario.getRol().tieneOpcion('mant_roles')}" th:href="@{/agricultor}"
-                        class="nav-link">
+                    <a th:if="${session.usuario.getRol().tieneOpcion('mant_roles')}" th:href="@{/rol}" class="nav-link">
                         <svg class="bi me-2" width="16" height="16">
                             <use xlink:href="#table"></use>
                         </svg>
@@ -132,7 +131,7 @@
                     </a>
                 </li>
                 <li>
-                    <a th:if="${usuario.getRol().tieneOpcion('mant_usuarios')}" th:href="@{/agricultor}"
+                    <a th:if="${session.usuario.getRol().tieneOpcion('mant_usuarios')}" th:href="@{/usuario}"
                         class="nav-link">
                         <svg class="bi me-2" width="16" height="16">
                             <use xlink:href="#table"></use>
@@ -141,7 +140,7 @@
                     </a>
                 </li>
                 <li>
-                    <a th:if="${usuario.getRol().tieneOpcion('mant_permisos_rol')}" th:href="@{/agricultor}"
+                    <a th:if="${session.usuario.getRol().tieneOpcion('mant_permisos_rol')}" th:href="@{/opcion}"
                         class="nav-link">
                         <svg class="bi me-2" width="16" height="16">
                             <use xlink:href="#table"></use>
@@ -150,7 +149,7 @@
                     </a>
                 </li>
                 <li>
-                    <a th:if="${usuario.getRol().tieneOpcion('mant_agricultores')}" th:href="@{/agricultor}"
+                    <a th:if="${session.usuario.getRol().tieneOpcion('mant_agricultores')}" th:href="@{/agricultor}"
                         class="nav-link">
                         <svg class="bi me-2" width="16" height="16">
                             <use xlink:href="#table"></use>
@@ -159,7 +158,8 @@
                     </a>
                 </li>
                 <li>
-                    <a th:if="${usuario.getRol().tieneOpcion('mant_empresas')}" th:href="@{/empresa}" class="nav-link link-dark">
+                    <a th:if="${session.usuario.getRol().tieneOpcion('mant_empresas')}" th:href="@{/empresa}"
+                        class="nav-link link-dark">
                         <svg class="bi me-2" width="16" height="16">
                             <use xlink:href="#grid"></use>
                         </svg>
@@ -167,7 +167,8 @@
                     </a>
                 </li>
                 <li>
-                    <a th:if="${usuario.getRol().tieneOpcion('mant_terrenos')}" th:href="@{/terreno}" class="nav-link link-dark">
+                    <a th:if="${session.usuario.getRol().tieneOpcion('mant_terrenos')}" th:href="@{/terreno}"
+                        class="nav-link link-dark">
                         <svg class="bi me-2" width="16" height="16">
                             <use xlink:href="#grid"></use>
                         </svg>
@@ -175,7 +176,8 @@
                     </a>
                 </li>
                 <li>
-                    <a th:if="${usuario.getRol().tieneOpcion('mant_canales')}" th:href="@{/terreno}" class="nav-link link-dark">
+                    <a th:if="${session.usuario.getRol().tieneOpcion('mant_canales')}" th:href="@{/canal}"
+                        class="nav-link link-dark">
                         <svg class="bi me-2" width="16" height="16">
                             <use xlink:href="#grid"></use>
                         </svg>
@@ -183,7 +185,8 @@
                     </a>
                 </li>
                 <li>
-                    <a th:if="${usuario.getRol().tieneOpcion('refinanciamiento_deuda')}" th:href="@{/terreno}" class="nav-link link-dark">
+                    <a th:if="${session.usuario.getRol().tieneOpcion('refinanciamiento_deuda')}" th:href="@{/deuda}"
+                        class="nav-link link-dark">
                         <svg class="bi me-2" width="16" height="16">
                             <use xlink:href="#grid"></use>
                         </svg>
@@ -191,7 +194,8 @@
                     </a>
                 </li>
                 <li>
-                    <a th:if="${usuario.getRol().tieneOpcion('mant_lectura_medidores')}" th:href="@{/terreno}" class="nav-link link-dark">
+                    <a th:if="${session.usuario.getRol().tieneOpcion('mant_lectura_medidores')}" th:href="@{/lectura}"
+                        class="nav-link link-dark">
                         <svg class="bi me-2" width="16" height="16">
                             <use xlink:href="#grid"></use>
                         </svg>
@@ -199,7 +203,8 @@
                     </a>
                 </li>
                 <li>
-                    <a th:if="${usuario.getRol().tieneOpcion('mant_costos')}" th:href="@{/terreno}" class="nav-link link-dark">
+                    <a th:if="${session.usuario.getRol().tieneOpcion('mant_costos')}" th:href="@{/costo}"
+                        class="nav-link link-dark">
                         <svg class="bi me-2" width="16" height="16">
                             <use xlink:href="#grid"></use>
                         </svg>
@@ -207,7 +212,8 @@
                     </a>
                 </li>
                 <li>
-                    <a th:if="${usuario.getRol().tieneOpcion('generar_recibo_agua')}" th:href="@{/terreno}" class="nav-link link-dark">
+                    <a th:if="${session.usuario.getRol().tieneOpcion('generar_recibo_agua')}" th:href="@{/genrecibo}"
+                        class="nav-link link-dark">
                         <svg class="bi me-2" width="16" height="16">
                             <use xlink:href="#grid"></use>
                         </svg>
@@ -215,7 +221,8 @@
                     </a>
                 </li>
                 <li>
-                    <a th:if="${usuario.getRol().tieneOpcion('listar_recibos')}" th:href="@{/terreno}" class="nav-link link-dark">
+                    <a th:if="${session.usuario.getRol().tieneOpcion('listar_recibos')}" th:href="@{/recibo}"
+                        class="nav-link link-dark">
                         <svg class="bi me-2" width="16" height="16">
                             <use xlink:href="#grid"></use>
                         </svg>
@@ -223,7 +230,8 @@
                     </a>
                 </li>
                 <li>
-                    <a th:if="${usuario.getRol().tieneOpcion('gestionar_info_personal')}" th:href="@{/terreno}" class="nav-link link-dark">
+                    <a th:if="${session.usuario.getRol().tieneOpcion('gestionar_info_personal')}" th:href="@{/perfil}"
+                        class="nav-link link-dark">
                         <svg class="bi me-2" width="16" height="16">
                             <use xlink:href="#grid"></use>
                         </svg>
@@ -231,7 +239,8 @@
                     </a>
                 </li>
                 <li>
-                    <a th:if="${usuario.getRol().tieneOpcion('visualizar_tarifas')}" th:href="@{/terreno}" class="nav-link link-dark">
+                    <a th:if="${session.usuario.getRol().tieneOpcion('visualizar_tarifas')}" th:href="@{/tarifa}"
+                        class="nav-link link-dark">
                         <svg class="bi me-2" width="16" height="16">
                             <use xlink:href="#grid"></use>
                         </svg>

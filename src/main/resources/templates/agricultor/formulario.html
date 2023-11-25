@@ -8,77 +8,81 @@
 </head>
 
 <body>
-
-    <div th:insert="~{seguridad/template :: nav}"></div>
-
-    <div class="container mt-4">
-        <div class="col-sm-6">
-            <div class="card">
-                <form th:action="@{/agricultor/guardar}" th:object="${agricultor}" method="POST">
-                    <div class="card-header">Formulario de Agricultores</div>
-                    <div class="card-body">
-                        <!-- tipoDocumento -->
-                        <div class="form-group">
-                            <label for="tipoDocumento">Tipo de documento</label>
-                            <select th:field="*{tipoDocumento}" class="form-control" id="tipoDocumento"
-                                name="tipoDocumento">
-                                <option th:each="tipoDocumento : ${tiposDocumento}" th:value="${tipoDocumento.id}"
-                                    th:text="${tipoDocumento.nombre}"></option>
-                            </select>
-                        </div>
-                        <!-- numDoc -->
-                        <div class="mb-3">
-                            <label for="numDoc" class="form-label">Documento</label>
-                            <input type="text" class="form-control" id="numDoc" name="numDoc" th:field="*{numDoc}"
-                                th:readonly="${readonly}">
-                        </div>
-                        <!-- primerNombre -->
-                        <div class="mb-3">
-                            <label for="primerNombre" class="form-label">Primer Nombre</label>
-                            <input type="text" class="form-control" id="primerNombre" name="primerNombre"
-                                th:field="*{primerNombre}">
-                        </div>
-                        <!-- segundoNombre -->
-                        <div class="mb-3">
-                            <label for="segundoNombre" class="form-label">Segundo Nombre</label>
-                            <input type="text" class="form-control" id="segundoNombre" name="segundoNombre"
-                                th:field="*{segundoNombre}">
-                        </div>
-                        <!-- apellidoPaterno -->
-                        <div class="mb-3">
-                            <label for="apellidoPaterno" class="form-label">Apellido Paterno</label>
-                            <input type="text" class="form-control" id="apellidoPaterno" name="apellidoPaterno"
-                                th:field="*{apellidoPaterno}">
-                        </div>
-                        <!-- apellidoMaterno -->
-                        <div class="mb-3">
-                            <label for="apellidoMaterno" class="form-label">Apellido Materno</label>
-                            <input type="text" class="form-control" id="apellidoMaterno" name="apellidoMaterno"
-                                th:field="*{apellidoMaterno}">
-                        </div>
-                        <!-- direccion -->
-                        <div class="mb-3">
-                            <label for="propietario.direccion" class="form-label">Dirección</label>
-                            <input type="text" class="form-control" id="propietario.direccion"
-                                name="propietario.direccion" th:field="*{propietario.direccion}">
-                        </div>
-                        <!-- correo -->
-                        <div class="mb-3">
-                            <label for="propietario.correo" class="form-label">Correo</label>
-                            <input type="text" class="form-control" id="propietario.correo" name="propietario.correo"
-                                th:field="*{propietario.correo}">
-                        </div>
-                        <!-- telefono -->
-                        <div class="mb-3">
-                            <label for="propietario.telefono" class="form-label">Teléfono</label>
-                            <input type="text" class="form-control" id="propietario.telefono"
-                                name="propietario.telefono" th:field="*{propietario.telefono}">
-                        </div>
+    <div class="row">
+        <div class="col-md-3">
+            <div th:insert="~{sidebar :: sidebar}"></div>
+        </div>
+        <div class="col-md-9">
+            <div class="container mt-4">
+                <div class="col-sm-6">
+                    <div class="card">
+                        <form th:action="@{/agricultor/guardar}" th:object="${agricultor}" method="POST">
+                            <div class="card-header">Formulario de Agricultores</div>
+                            <div class="card-body">
+                                <!-- tipoDocumento -->
+                                <div class="form-group">
+                                    <label for="tipoDocumento">Tipo de documento</label>
+                                    <select th:field="*{tipoDocumento}" class="form-control" id="tipoDocumento"
+                                        name="tipoDocumento">
+                                        <option th:each="tipoDocumento : ${tiposDocumento}"
+                                            th:value="${tipoDocumento.id}" th:text="${tipoDocumento.nombre}"></option>
+                                    </select>
+                                </div>
+                                <!-- numDoc -->
+                                <div class="mb-3">
+                                    <label for="numDoc" class="form-label">Documento</label>
+                                    <input type="text" class="form-control" id="numDoc" name="numDoc"
+                                        th:field="*{numDoc}" th:readonly="${readonly}">
+                                </div>
+                                <!-- primerNombre -->
+                                <div class="mb-3">
+                                    <label for="primerNombre" class="form-label">Primer Nombre</label>
+                                    <input type="text" class="form-control" id="primerNombre" name="primerNombre"
+                                        th:field="*{primerNombre}">
+                                </div>
+                                <!-- segundoNombre -->
+                                <div class="mb-3">
+                                    <label for="segundoNombre" class="form-label">Segundo Nombre</label>
+                                    <input type="text" class="form-control" id="segundoNombre" name="segundoNombre"
+                                        th:field="*{segundoNombre}">
+                                </div>
+                                <!-- apellidoPaterno -->
+                                <div class="mb-3">
+                                    <label for="apellidoPaterno" class="form-label">Apellido Paterno</label>
+                                    <input type="text" class="form-control" id="apellidoPaterno" name="apellidoPaterno"
+                                        th:field="*{apellidoPaterno}">
+                                </div>
+                                <!-- apellidoMaterno -->
+                                <div class="mb-3">
+                                    <label for="apellidoMaterno" class="form-label">Apellido Materno</label>
+                                    <input type="text" class="form-control" id="apellidoMaterno" name="apellidoMaterno"
+                                        th:field="*{apellidoMaterno}">
+                                </div>
+                                <!-- direccion -->
+                                <div class="mb-3">
+                                    <label for="propietario.direccion" class="form-label">Dirección</label>
+                                    <input type="text" class="form-control" id="propietario.direccion"
+                                        name="propietario.direccion" th:field="*{propietario.direccion}">
+                                </div>
+                                <!-- correo -->
+                                <div class="mb-3">
+                                    <label for="propietario.correo" class="form-label">Correo</label>
+                                    <input type="text" class="form-control" id="propietario.correo"
+                                        name="propietario.correo" th:field="*{propietario.correo}">
+                                </div>
+                                <!-- telefono -->
+                                <div class="mb-3">
+                                    <label for="propietario.telefono" class="form-label">Teléfono</label>
+                                    <input type="text" class="form-control" id="propietario.telefono"
+                                        name="propietario.telefono" th:field="*{propietario.telefono}">
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <button type="submit" class="btn btn-primary">Guardar</button>
+                            </div>
+                        </form>
                     </div>
-                    <div class="card-footer">
-                        <button type="submit" class="btn btn-primary">Guardar</button>
-                    </div>
-                </form>
+                </div>
             </div>
         </div>
     </div>
