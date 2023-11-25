@@ -1,6 +1,12 @@
 package com.nibble.chinecas.model;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name="item")
 public class Item {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private int anio;
     private double importe;

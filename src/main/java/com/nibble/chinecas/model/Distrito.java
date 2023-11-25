@@ -1,6 +1,12 @@
 package com.nibble.chinecas.model;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name="distrito")
 public class Distrito {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String nombre;
     private Provincia provincia;

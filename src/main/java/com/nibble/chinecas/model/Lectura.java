@@ -2,7 +2,13 @@ package com.nibble.chinecas.model;
 
 import java.sql.Date;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name="lectura")
 public class Lectura {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private double volumen_utilizado;
     private Costo costo;

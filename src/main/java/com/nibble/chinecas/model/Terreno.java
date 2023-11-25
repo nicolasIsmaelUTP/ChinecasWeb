@@ -1,6 +1,12 @@
 package com.nibble.chinecas.model;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name="terreno")
 public class Terreno {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int codigo;
     private double ha_total;
     private double ha_bajo_riego;

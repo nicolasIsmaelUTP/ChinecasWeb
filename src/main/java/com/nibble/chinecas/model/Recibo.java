@@ -2,7 +2,13 @@ package com.nibble.chinecas.model;
 
 import java.sql.Date;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name="recibo")
 public class Recibo {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int numero;
     private Date fecha_emision;
     private Date fecha_vencimiento;
