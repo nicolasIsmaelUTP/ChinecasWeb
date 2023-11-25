@@ -9,39 +9,47 @@
 
 <body>
 
-    <div th:insert="~{seguridad/template :: nav}"></div>
+    <div class="row">
+        <div class="col-md-3">
+            <div th:insert="~{sidebar :: sidebar}"></div>
+        </div>
+        <div class="col-md-9">
+            <div class="container mt-4">
+                <h1>Listado de Agricultores</h1>
+                <p class="lead">Listado de Agricultores</p>
+                <a class="btn btn-primary" th:href="@{/agricultor/nuevo}">Nuevo</a>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Documento</th>
+                            <th scope="col">Apellidos</th>
+                            <th scope="col">Nombres</th>
+                            <th scope="col">Telefono</th>
+                            <th scope="col">Direccion</th>
+                            <th scope="col">Correo</th>
+                            <th scope="col">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="agricultor : ${agricultores}">
+                            <td th:text="${agricultor.numDoc}"></td>
+                            <td th:text="${agricultor.apellidoPaterno + ' ' + agricultor.apellidoMaterno}"></td>
+                            <td th:text="${agricultor.primerNombre + ' ' + agricultor.segundoNombre}"></td>
+                            <td th:text="${agricultor.propietario.telefono}"></td>
+                            <td th:text="${agricultor.propietario.direccion}"></td>
+                            <td th:text="${agricultor.propietario.correo}"></td>
+                            <td>
+                                <a class="btn btn-warning"
+                                    th:href="@{/agricultor/editar/} + ${agricultor.numDoc}">Editar</a>
+                                <a class="btn btn-danger"
+                                    th:href="@{/agricultor/eliminar/} + ${agricultor.numDoc}">Eliminar</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
-    <div class="container mt-4">
-        <h1>Listado de Agricultores</h1>
-        <p class="lead">Listado de Agricultores</p>
-        <a class="btn btn-primary" th:href="@{/agricultor/nuevo}">Nuevo</a>
-        <table class="table">
-            <thead>
-                <tr>
-                    <th scope="col">Documento</th>
-                    <th scope="col">Apellidos</th>
-                    <th scope="col">Nombres</th>
-                    <th scope="col">Telefono</th>
-                    <th scope="col">Direccion</th>
-                    <th scope="col">Correo</th>
-                    <th scope="col">Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr th:each="agricultor : ${agricultores}">
-                    <td th:text="${agricultor.numDoc}"></td>
-                    <td th:text="${agricultor.apellidoPaterno + ' ' + agricultor.apellidoMaterno}"></td>
-                    <td th:text="${agricultor.primerNombre + ' ' + agricultor.segundoNombre}"></td>
-                    <td th:text="${agricultor.propietario.telefono}"></td>
-                    <td th:text="${agricultor.propietario.direccion}"></td>
-                    <td th:text="${agricultor.propietario.correo}"></td>
-                    <td>
-                        <a class="btn btn-warning" th:href="@{/agricultor/editar/} + ${agricultor.numDoc}">Editar</a>
-                        <a class="btn btn-danger" th:href="@{/agricultor/eliminar/} + ${agricultor.numDoc}">Eliminar</a>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+        </div>
     </div>
 </body>
 
