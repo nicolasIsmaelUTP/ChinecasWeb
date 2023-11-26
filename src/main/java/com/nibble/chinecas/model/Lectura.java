@@ -1,17 +1,14 @@
 package com.nibble.chinecas.model;
 
-import java.sql.Date;
+import java.util.Date;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.Min;
 
 @Entity
 @Table(name="lectura")
 public class Lectura {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(nullable = false)
-    @Min(1)
     private int id;
 
     @Column(nullable = false)
@@ -22,7 +19,7 @@ public class Lectura {
     private Costo costo;
 
     @Column(nullable = false)
-    @Temporal(TemporalType.DATE)
+    @Temporal(TemporalType.TIMESTAMP)
     private Date fecha;
 
     @ManyToOne
