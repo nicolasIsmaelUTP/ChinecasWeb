@@ -1,18 +1,40 @@
 package com.nibble.chinecas.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.Size;
 
 @Entity
 @Table(name="terreno")
 public class Terreno {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(nullable = false)
+    @Min(1)
     private int codigo;
+
+    @Column(nullable = false)
     private double ha_total;
+
+    @Column(nullable = false)
     private double ha_bajo_riego;
+
+    @Column(nullable = false)
     private double volumen_agua_otorgado;
+
+    @Column(nullable = false, length = 100)
+    @Size(min = 10, max = 100)
     private String direccion;
+
+    @ManyToOne
+    @JoinColumn(name = "propietario_id", nullable = false)
+    @Size(min = 5, max = 11)
+    @Pattern(regexp = "^[0-9]*$")
     private Propietario propietario;
+
+    @ManyToOne
+    @JoinColumn(name = "canal_id", nullable = false)
     private Canal canal;
 
     public Terreno() {

@@ -1,14 +1,23 @@
 package com.nibble.chinecas.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.Size;
 
 @Entity
 @Table(name="costo")
 public class Costo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(nullable = false)
+    @Min(1)
     private int id;
+
+    @Column(nullable = false, length = 100)
+    @Size(min = 10, max = 100)
     private String descripcion;
+
+    @Column(nullable = false)
     private double valor_metro_cubico;
 
     public Costo(){
