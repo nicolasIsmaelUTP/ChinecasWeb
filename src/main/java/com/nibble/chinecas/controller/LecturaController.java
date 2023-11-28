@@ -41,9 +41,9 @@ public class LecturaController {
 
     @PostMapping("/guardar")
     public String guardar(Lectura lectura){
-        lectura.setFecha(new Date()); //Para la fecha actual
-
-        lecturaService.guardar(lectura);
+        Lectura l = lectura;
+        l.setFecha(new Date()); //Para la fecha actual
+        lecturaService.guardar(l);
         return "redirect:/lectura";
     }
 
