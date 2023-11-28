@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Formulario de Terrenos</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="row">
+        <div class="col-md-3">
+            <div th:insert="~{sidebar :: sidebar}"></div>
+        </div>
+        <div class="col-md-9">
+            <div class="container mt-4">
+                <div class="col-sm-6">
+                    <div class="card">
+                        <form th:action="@{/terreno/guardar}" th:object="${terreno}" method="POST">
+                            <div class="card-header">Formulario de Terrenos</div>
+                            <div class="card-body">
+                                <!-- Propietario -->
+                                <div class="form-group">
+                                    <label for="propietario">Propietario</label>
+                                    <select th:field="*{propietario}" class="form-control" id="propietario"
+                                        name="propietario">
+                                        <option th:each="propietario : ${propietarios}"
+                                            th:value="${propietario.id}" th:text="${propietario.correo}"></option>
+                                    </select>
+                                </div>
+                                <!-- Hectarea Total -->
+                                <div class="mb-3">
+                                    <label for="ha_total" class="form-label">Hectarea total</label>
+                                    <input type="text" class="form-control" id="ha_total" name="ha_total"
+                                        th:field="*{ha_total}" th:readonly="${readonly}">
+                                </div>
+                                <!-- Hectarea bajo riego -->
+                                <div class="mb-3">
+                                    <label for="ha_bajo_riego" class="form-label">Hectarea bajo riego</label>
+                                    <input type="text" class="form-control" id="ha_bajo_riego" name="ha_bajo_riego"
+                                        th:field="*{ha_bajo_riego}">
+                                </div>
+                                <!-- Volumen de agua otorgado -->
+                                <div class="mb-3">
+                                    <label for="volumen_agua_otorgado" class="form-label">Volumen agua otorgado</label>
+                                    <input type="text" class="form-control" id="volumen_agua_otorgado" name="volumen_agua_otorgado"
+                                        th:field="*{volumen_agua_otorgado}">
+                                </div>
+                                <!-- Direccion -->
+                                <div class="mb-3">
+                                    <label for="direccion" class="form-label">Direccion</label>
+                                    <input type="text" class="form-control" id="direccion" name="direccion"
+                                        th:field="*{direccion}">
+                                </div>
+                                <!-- Canal -->
+                                <div class="form-group">
+                                    <label for="canal">Canal</label>
+                                    <select th:field="*{canal}" class="form-control" id="canal"
+                                        name="canal">
+                                        <option th:each="canal : ${canales}"
+                                            th:value="${canal.id}" th:text="${canal.nombre}"></option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <button type="submit" class="btn btn-primary">Guardar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

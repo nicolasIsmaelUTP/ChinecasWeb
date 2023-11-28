@@ -4,10 +4,12 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.nibble.chinecas.model.Costo;
 import com.nibble.chinecas.repository.ICostoRepository;
 
+@Service
 public class CostoService implements IService<Costo, Integer> {
 
     @Autowired

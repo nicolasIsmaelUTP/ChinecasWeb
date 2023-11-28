@@ -4,10 +4,12 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.nibble.chinecas.model.Lectura;
 import com.nibble.chinecas.repository.ILecturaRepository;
 
+@Service
 public class LecturaService implements IService<Lectura, Integer>{
 
     @Autowired
