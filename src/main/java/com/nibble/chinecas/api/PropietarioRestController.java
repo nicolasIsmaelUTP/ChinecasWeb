@@ -221,6 +221,49 @@ public class PropietarioRestController {
         return null;
     }
 
-    // @GetMapping("/correo/{correo}")
-    // public ArrayList<Object> obtenerPorCorreo
+    /**
+     * Obtiene una lista de propietarios por correo electrónico.
+     * 
+     * @param correo El correo electrónico del propietario.
+     * @return Una lista de objetos que representan los propietarios encontrados.
+     */
+    @GetMapping("/correo/{correo}")
+    public ArrayList<Object> obtenerPorCorreo(@PathVariable("correo") String correo) {
+        ArrayList<Object> propietarios = new ArrayList<Object>();
+        List<Propietario> propietarioList = propietarioService.obtenerPorCorreo(correo);
+        for (Propietario propietario : propietarioList) {
+            Map<String, Object> propietarioMap = new TreeMap<>();
+            propietarioMap.put("tipo", propietario.getTipo());
+            propietarioMap.put("direccion", propietario.getDireccion());
+            propietarioMap.put("correo", propietario.getCorreo());
+            propietarioMap.put("telefono", propietario.getTelefono());
+
+            // Si el propietario es de tipo "natural"
+            if (propietario.getTipo().equals("natural")) {
+                Agricultor agricultor = agricultorService.obtener(propietario.getId()).orElse(null);
+                if (agricultor != null) {
+                    propietarioMap.put("numDoc", agricultor.getNumDoc());
+                    propietarioMap.put("primerNombre", agricultor.getPrimerNombre());
+                    propietarioMap.put("segundoNombre", agricultor.getSegundoNombre());
+                    propietarioMap.put("apellidoPaterno", agricultor.getApellidoPaterno());
+                    propietarioMap.put("apellidoMaterno", agricultor.getApellidoMaterno());
+                    propietarioMap.put("tipoDocumento", agricultor.getTipoDocumento().getNombre());
+                }
+            }
+            // Si el propietario es de tipo "empresa"
+            else {
+                Empresa empresa = empresaService.obtener(propietario.getId()).orElse(null);
+                if (empresa != null) {
+                    propietarioMap.put("ruc", empresa.getRuc());
+                    propietarioMap.put("nombre", empresa.getNombre());
+                    propietarioMap.put("razonSocial", empresa.getRazonSocial());
+                    propietarioMap.put("tipoDeEmpresa", empresa.getTipoDeEmpresa().getNombre());
+                }
+            }
+
+            propietarios.add(propietarioMap);
+        }
+
+        return propietarios;
+    }
 }

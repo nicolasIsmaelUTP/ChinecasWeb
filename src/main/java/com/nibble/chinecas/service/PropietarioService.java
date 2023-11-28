@@ -1,5 +1,6 @@
 package com.nibble.chinecas.service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -40,4 +41,14 @@ public class PropietarioService implements IService<Propietario, String>{
         data.deleteById(id);
     }
     
+    // Custom methods
+    public List<Propietario> obtenerPorCorreo(String correo) {
+        List<Propietario> propietarios = new ArrayList<>();
+        for (Propietario propietario : obtenerTodos()) {
+            if (propietario.getCorreo().equals(correo)) {
+                propietarios.add(propietario);
+            }
+        }
+        return propietarios;
+    }
 }
