@@ -39,7 +39,7 @@
                             <td th:text="${terreno.ha_bajo_riego}"></td>
                             <td th:text="${terreno.volumen_agua_otorgado}"></td>
                             <td th:text="${terreno.direccion}"></td>
-                            <td th:text="${terreno.canal}"></td>
+                            <td th:text="${terreno.canal.nombre}"></td>
                             <td>
                                 <a class="btn btn-warning"
                                     th:href="@{/terreno/editar/} + ${terreno.codigo}">Editar</a>

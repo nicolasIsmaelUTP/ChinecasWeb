@@ -14,8 +14,8 @@ public class Provincia {
     @Min(1)
     private int id;
 
-    @Column(nullable = false, length = 20)
-    @Size(min = 3, max = 20)
+    @Column(nullable = false, length = 35)
+    @Size(min = 3, max = 35)
     private String nombre;
 
     @ManyToOne
