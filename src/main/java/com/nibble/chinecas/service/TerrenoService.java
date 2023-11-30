@@ -39,5 +39,10 @@ public class TerrenoService implements IService<Terreno, Integer>{
     public void eliminar(Integer id) {
         data.deleteById(id);
     }
-    
+      
+
+    public List<Terreno> obtenerPorDistrito(int distrito) {
+        return data.findByDistrito(distrito);
+    }
 }
+
