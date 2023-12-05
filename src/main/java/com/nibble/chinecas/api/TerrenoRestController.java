@@ -15,6 +15,11 @@ public class TerrenoRestController {
     @Autowired
     private TerrenoService terrenoService;
 
+    @GetMapping("/{codigo}")
+    public Terreno getTerreno(@PathVariable("codigo")  int codigo) {
+        return terrenoService.obtener(codigo).orElse(null);
+    }
+
     @GetMapping("/distrito/{distrito}")
     public List<Terreno> getTerrenosByDistrito(@PathVariable("distrito")  int distrito) {
         return terrenoService.obtenerPorDistrito(distrito);
