@@ -115,7 +115,7 @@
             <hr>
             <ul class="nav nav-pills flex-column mb-auto">
                 <li class="nav-item">
-                    <a href="#" class="nav-link active" aria-current="page">
+                    <a href="#" class="nav-link link-dark" aria-current="page">
                         <svg class="bi me-2" width="16" height="16">
                             <use xlink:href="#home"></use>
                         </svg>
@@ -123,7 +123,8 @@
                     </a>
                 </li>
                 <li>
-                    <a th:if="${session.usuario.getRol().tieneOpcion('mant_roles')}" th:href="@{/rol}" class="nav-link">
+                    <a th:if="${session.usuario.getRol().tieneOpcion('mant_roles')}" th:href="@{/rol}"
+                        class="nav-link link-dark">
                         <svg class="bi me-2" width="16" height="16">
                             <use xlink:href="#table"></use>
                         </svg>
@@ -132,7 +133,7 @@
                 </li>
                 <li>
                     <a th:if="${session.usuario.getRol().tieneOpcion('mant_usuarios')}" th:href="@{/usuario}"
-                        class="nav-link">
+                        class="nav-link link-dark">
                         <svg class="bi me-2" width="16" height="16">
                             <use xlink:href="#table"></use>
                         </svg>
@@ -141,16 +142,16 @@
                 </li>
                 <li>
                     <a th:if="${session.usuario.getRol().tieneOpcion('mant_permisos_rol')}" th:href="@{/opcion}"
-                        class="nav-link">
+                        class="nav-link link-dark">
                         <svg class="bi me-2" width="16" height="16">
                             <use xlink:href="#table"></use>
                         </svg>
-                        Mantenimiento de permisos por rol
+                        Mantenimiento de opciones
                     </a>
                 </li>
                 <li>
                     <a th:if="${session.usuario.getRol().tieneOpcion('mant_agricultores')}" th:href="@{/agricultor}"
-                        class="nav-link">
+                        class="nav-link link-dark">
                         <svg class="bi me-2" width="16" height="16">
                             <use xlink:href="#table"></use>
                         </svg>
@@ -217,7 +218,7 @@
                         <svg class="bi me-2" width="16" height="16">
                             <use xlink:href="#grid"></use>
                         </svg>
-                        Generar recibo de consumo de agua
+                        --Generar recibo de consumo de agua--
                     </a>
                 </li>
                 <li>
@@ -226,7 +227,7 @@
                         <svg class="bi me-2" width="16" height="16">
                             <use xlink:href="#grid"></use>
                         </svg>
-                        Listar recibos
+                        --Listar recibos--
                     </a>
                 </li>
                 <li>
@@ -255,7 +256,7 @@
                     <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">
                     <strong th:text="${session.usuario.login}"></strong>
                 </a>
-                <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser2" style="">
+                <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser2">
                     <li><a class="dropdown-item" href="#">New project...</a></li>
                     <li><a class="dropdown-item" href="#">Settings</a></li>
                     <li><a class="dropdown-item" href="#">Profile</a></li>
