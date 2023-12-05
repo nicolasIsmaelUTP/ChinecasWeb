@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import com.nibble.chinecas.service.LecturaService;
 
@@ -16,8 +17,8 @@ public class ItemReciboRestController {
     @Autowired
     private LecturaService lecturaService;
 
-    @GetMapping
-    public List<ItemRecibo> obtenerTodos() {
-        return lecturaService.obtenerItems(1, 2023);
+    @GetMapping("{terreno_codigo}/{anio}")
+    public List<ItemRecibo> obtenerTodos(@PathVariable("terreno_codigo") int terreno_codigo, @PathVariable("anio") int anio) {
+        return lecturaService.obtenerItems(terreno_codigo, anio);
     }
 }
