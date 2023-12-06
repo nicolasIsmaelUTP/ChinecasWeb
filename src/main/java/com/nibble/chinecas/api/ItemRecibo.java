@@ -5,15 +5,17 @@ public class ItemRecibo {
     private int anio;
     private double valor_metro_cubico;
     private double volumen_utilizado;
+    private int lectura_id;
 
     public ItemRecibo() {
     }
 
-    public ItemRecibo(String descripcion, int anio, double valor_metro_cubico, double volumen_utilizado) {
+    public ItemRecibo(String descripcion, int anio, double valor_metro_cubico, double volumen_utilizado, int lectura_id) {
         this.descripcion = descripcion;
         this.anio = anio;
         this.valor_metro_cubico = valor_metro_cubico;
         this.volumen_utilizado = volumen_utilizado;
+        this.lectura_id = lectura_id;
     }
 
     public String getDescripcion() {
@@ -46,5 +48,13 @@ public class ItemRecibo {
 
     public void setVolumen_utilizado(double volumen_utilizado) {
         this.volumen_utilizado = volumen_utilizado;
+    }
+
+    public int getLectura_id() {
+        return lectura_id;
+    }
+
+    public void setLectura_id(int lectura_id) {
+        this.lectura_id = lectura_id;
     }
 }
