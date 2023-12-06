@@ -17,7 +17,6 @@
             <div class="container mt-4">
                 <h1>Listado de Lecturas</h1>
                 <p class="lead">Listado de Lecturas</p>
-                <a class="btn btn-primary" th:href="@{/lectura/nuevo}">Nuevo</a>
                 <table class="table">
                     <thead>
                         <tr>
@@ -37,8 +36,8 @@
                             <td th:text="${lectura.costo.descripcion}"></td>
                             <td th:text="${lectura.fecha}"></td>
                             <td>
-                                <a class="btn btn-warning"
-                                    th:href="@{/lectura/editar/} + ${lectura.id}">Editar</a>
+                                <!-- <a class="btn btn-warning"
+                                    th:href="@{/lectura/editar/} + ${lectura.id}">Editar</a> -->
                                 <a class="btn btn-danger"
                                     th:href="@{/lectura/eliminar/} + ${lectura.id}">Eliminar</a>
                             </td>

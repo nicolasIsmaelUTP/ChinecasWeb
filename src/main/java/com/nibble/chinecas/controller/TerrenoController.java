@@ -1,5 +1,6 @@
 package com.nibble.chinecas.controller;
 
+import java.time.Year;
 import java.util.*;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -68,7 +69,8 @@ public class TerrenoController {
             model.addAttribute("lectura", new Lectura());
             model.addAttribute("terreno", terreno);
 
-            List<Costo> costos = costoService.obtenerCostosDisponiblesParaTerrenoEnAnio(terreno, 2023);
+            int currentYear = Year.now().getValue();
+            List<Costo> costos = costoService.obtenerCostosDisponiblesParaTerrenoEnAnio(terreno, currentYear);
 
             model.addAttribute("costos", costos);
             return "terreno/lectura";

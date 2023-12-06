@@ -22,7 +22,8 @@
                                 <!-- Terreno -->
                                 <div class="form-group">
                                     <label for="terreno">Terreno</label>
-                                    <input type="text" class="form-control" id="terreno" name="terreno" value="${terreno.codigo}" readonly th:field="*{terreno}">
+                                    <input type="text" class="form-control" id="terreno" name="terreno" readonly
+                                    th:value="${terreno.codigo}">
                                 </div>
                                 <!-- Volumen utilizado -->
                                 <div class="mb-3">
