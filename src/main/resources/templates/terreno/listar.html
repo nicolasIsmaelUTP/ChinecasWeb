@@ -41,10 +41,11 @@
                             <td th:text="${terreno.direccion}"></td>
                             <td th:text="${terreno.canal.nombre}"></td>
                             <td>
-                                <a class="btn btn-warning"
-                                    th:href="@{/terreno/editar/} + ${terreno.codigo}">Editar</a>
+                                <a class="btn btn-warning" th:href="@{/terreno/editar/} + ${terreno.codigo}">Editar</a>
                                 <a class="btn btn-danger"
                                     th:href="@{/terreno/eliminar/} + ${terreno.codigo}">Eliminar</a>
+                                <a class="btn btn-info"
+                                    th:href="@{/terreno/realizarLectura/} + ${terreno.codigo}">Realizar Lectura</a>
                             </td>
                         </tr>
                     </tbody>

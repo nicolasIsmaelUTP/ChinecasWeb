@@ -60,7 +60,7 @@ public class LecturaService implements IService<Lectura, Integer> {
      * @return una lista de lecturas filtradas por terreno y año
      */
     public List<Lectura> obtenerLecturasPorTerrenoYAnio(Terreno terreno, int anio) {
-        List<Lectura> lecturas = obtenerTodos();
+        List<Lectura> lecturas = (List<Lectura>) data.findAll();
 
         return lecturas.stream()
                 .filter(lectura -> lectura.getTerreno().equals(terreno))

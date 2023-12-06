@@ -17,11 +17,11 @@ public class LecturaController {
     @Autowired
     private LecturaService lecturaService;
 
-    @Autowired
-    private CostoService costoService;
+    // @Autowired
+    // private CostoService costoService;
 
-    @Autowired
-    private TerrenoService terrenoService;
+    // @Autowired
+    // private TerrenoService terrenoService;
 
     @GetMapping
     public String listar(Model model){
@@ -30,14 +30,14 @@ public class LecturaController {
         return "lectura/listar";
     }
 
-    @GetMapping("/nuevo")
-    public String nuevo(Model model){
-        model.addAttribute("lectura", new Lectura());
-        model.addAttribute("costos", costoService.obtenerTodos());
-        model.addAttribute("terrenos", terrenoService.obtenerTodos());
-        model.addAttribute("readonly", false);
-        return "lectura/formulario";
-    }
+    // @GetMapping("/nuevo")
+    // public String nuevo(Model model){
+    //     model.addAttribute("lectura", new Lectura());
+    //     model.addAttribute("costos", costoService.obtenerTodos());
+    //     model.addAttribute("terrenos", terrenoService.obtenerTodos());
+    //     model.addAttribute("readonly", false);
+    //     return "lectura/formulario";
+    // }
 
     @PostMapping("/guardar")
     public String guardar(Lectura lectura){
@@ -47,15 +47,15 @@ public class LecturaController {
         return "redirect:/lectura";
     }
 
-    @GetMapping("/editar/{id}")
-    public String editar(@PathVariable("id") int id, Model model){
-        Optional<Lectura> lectura = lecturaService.obtener(id);
-        model.addAttribute("lectura", lectura);
-        model.addAttribute("costos", costoService.obtenerTodos());
-        model.addAttribute("terrenos", terrenoService.obtenerTodos());
-        model.addAttribute("readonly", true);
-        return "lectura/formulario";
-    }
+    // @GetMapping("/editar/{id}")
+    // public String editar(@PathVariable("id") int id, Model model){
+    //     Optional<Lectura> lectura = lecturaService.obtener(id);
+    //     model.addAttribute("lectura", lectura);
+    //     model.addAttribute("costos", costoService.obtenerTodos());
+    //     model.addAttribute("terrenos", terrenoService.obtenerTodos());
+    //     model.addAttribute("readonly", true);
+    //     return "lectura/formulario";
+    // }
 
     @GetMapping("/eliminar/{id}")
     public String eliminar(@PathVariable("id") int id){

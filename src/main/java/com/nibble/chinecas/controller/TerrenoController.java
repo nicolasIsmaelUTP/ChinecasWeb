@@ -11,6 +11,7 @@ import com.nibble.chinecas.model.*;
 import com.nibble.chinecas.service.*;
 
 
+
 @Controller
 @RequestMapping("/terreno")
 public class TerrenoController {
@@ -23,6 +24,9 @@ public class TerrenoController {
 
     @Autowired
     private CanalService canalService;
+
+    @Autowired
+    private CostoService costoService;
 
     @GetMapping
     public String listar(Model model){
@@ -56,9 +60,19 @@ public class TerrenoController {
         return "terreno/formulario";
     }
 
-    @GetMapping("/eliminar/{id}")
-    public String eliminar(@PathVariable("id") int id){
-        terrenoService.eliminar(id);
+    @GetMapping("/realizarLectura/{id}")
+    public String realizarLectura(@PathVariable("id") int id, Model model){
+        Optional<Terreno> terrenoOptional = terrenoService.obtener(id);
+        if (terrenoOptional.isPresent()) {
+            Terreno terreno = terrenoOptional.get();
+            model.addAttribute("lectura", new Lectura());
+            model.addAttribute("terreno", terreno);
+
+            List<Costo> costos = costoService.obtenerCostosDisponiblesParaTerrenoEnAnio(terreno, 2023);
+
+            model.addAttribute("costos", costos);
+            return "terreno/lectura";
+        }
         return "redirect:/terreno";
     }
     

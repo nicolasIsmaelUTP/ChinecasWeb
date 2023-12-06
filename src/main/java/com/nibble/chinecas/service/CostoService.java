@@ -18,6 +18,9 @@ public class CostoService implements IService<Costo, Integer> {
     @Autowired
     private ICostoRepository data;
 
+    @Autowired
+    private LecturaService lecturaService;
+
     @Override
     public List<Costo> obtenerTodos() {
         return (List<Costo>) data.findAll();
@@ -52,10 +55,10 @@ public class CostoService implements IService<Costo, Integer> {
      */
     public List<Costo> obtenerCostosDisponiblesParaTerrenoEnAnio(Terreno terreno, int anio) {
         // Todos los costos
-        List<Costo> costos = obtenerTodos();
+        List<Costo> costos = (List<Costo>) data.findAll();
 
         // Costos de lecturas ya realizadas
-        List<Costo> costosDeLecturas = new LecturaService().obtenerLecturasPorTerrenoYAnio(terreno, anio)
+        List<Costo> costosDeLecturas = lecturaService.obtenerLecturasPorTerrenoYAnio(terreno, anio)
             .stream()
             .map(Lectura::getCosto)
             .collect(Collectors.toList());
