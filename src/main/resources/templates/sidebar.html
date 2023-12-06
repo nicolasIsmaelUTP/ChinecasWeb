@@ -213,33 +213,6 @@
                     </a>
                 </li>
                 <li>
-                    <a th:if="${session.usuario.getRol().tieneOpcion('generar_recibo_agua')}" th:href="@{/genrecibo}"
-                        class="nav-link link-dark">
-                        <svg class="bi me-2" width="16" height="16">
-                            <use xlink:href="#grid"></use>
-                        </svg>
-                        --Generar recibo de consumo de agua--
-                    </a>
-                </li>
-                <li>
-                    <a th:if="${session.usuario.getRol().tieneOpcion('listar_recibos')}" th:href="@{/recibo}"
-                        class="nav-link link-dark">
-                        <svg class="bi me-2" width="16" height="16">
-                            <use xlink:href="#grid"></use>
-                        </svg>
-                        --Listar recibos--
-                    </a>
-                </li>
-                <li>
-                    <a th:if="${session.usuario.getRol().tieneOpcion('gestionar_info_personal')}" th:href="@{/perfil}"
-                        class="nav-link link-dark">
-                        <svg class="bi me-2" width="16" height="16">
-                            <use xlink:href="#grid"></use>
-                        </svg>
-                        Gestionar información personal
-                    </a>
-                </li>
-                <li>
                     <a th:if="${session.usuario.getRol().tieneOpcion('visualizar_tarifas')}" th:href="@{/tarifa}"
                         class="nav-link link-dark">
                         <svg class="bi me-2" width="16" height="16">
@@ -257,8 +230,6 @@
                     <strong th:text="${session.usuario.login}"></strong>
                 </a>
                 <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser2">
-                    <li><a class="dropdown-item" href="#">New project...</a></li>
-                    <li><a class="dropdown-item" href="#">Settings</a></li>
                     <li><a class="dropdown-item" href="#">Profile</a></li>
                     <li>
                         <hr class="dropdown-divider">
